@@ -6,11 +6,11 @@ import 'package:unending/unending/unending.dart';
 
 
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  Flame.device.fullScreen();
-  Flame.device.setLandscape();
+  await Flame.device.fullScreen();
+  await Flame.device.setLandscape();
 
   Unending unending = Unending();
   runApp(GameWidget(game: kDebugMode ? Unending() : unending));
