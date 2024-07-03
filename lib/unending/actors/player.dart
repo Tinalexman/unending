@@ -11,8 +11,8 @@ class Player extends SpriteAnimationGroupComponent with HasGameRef<Unending> {
 
   final String character;
 
-  Player({required this.character});
-
+  Player({required this.character, required Vector2 position})
+      : super(position: position);
 
   @override
   FutureOr<void> onLoad() async {
@@ -35,7 +35,7 @@ class Player extends SpriteAnimationGroupComponent with HasGameRef<Unending> {
       PlayerState.running: runAnimation,
     };
 
-    current = PlayerState.running; // Set current animation
+    current = PlayerState.idle; // Set current animation
   }
 
   SpriteAnimation _createAnimation(String path, int amount) =>

@@ -1,0 +1,40 @@
+import 'dart:async';
+
+import 'package:flame/components.dart';
+import 'package:flame_tiled/flame_tiled.dart';
+import 'package:unending/unending/actors/player.dart';
+
+class Level extends World {
+  late TiledComponent level;
+
+  final String levelName;
+  Level({required this.levelName});
+
+  @override
+  FutureOr<void> onLoad() async {
+    level = await TiledComponent.load(
+      "$levelName.tmx",
+      Vector2.all(16.0),
+    );
+
+    ObjectGroup? spawnPointsLayer =
+        level.tileMap.getLayer<ObjectGroup>("Spawn Points");
+    for (TiledObject spawnPoint in spawnPointsLayer!.objects) {
+      switch (spawnPoint.class_) {
+        case "Player":
+          {
+            Player player = Player(
+              character: "Ninja Frog",
+              position: Vector2(spawnPoint.x, spawnPoint.y),
+            );
+            add(player);
+            break;
+          }
+        default:
+      }
+    }
+
+    add(level);
+    return super.onLoad();
+  }
+}

@@ -2,12 +2,13 @@ import 'dart:async';
 import 'dart:ui';
 import 'package:flame/components.dart';
 import 'package:flame/game.dart';
-import 'package:unending/unending/levels/level_1.dart';
+import 'package:unending/unending/levels/level.dart';
 
 class Unending extends FlameGame {
 
   late final CameraComponent cam;
-  final Level1 level = Level1();
+  // final Level level = Level(levelName: "Level_01");
+  final Level level = Level(levelName: "Level_02");
 
 
   @override

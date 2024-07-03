@@ -7,6 +7,17 @@
     "expandedProjectPaths": [
     ],
     "fileStates": {
+        "Level_01.tmx": {
+            "expandedObjectLayers": [
+                2
+            ],
+            "scale": 1,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 272.5,
+                "y": 423
+            }
+        },
         "Unending.tsx": {
             "scaleInEditor": 1
         }
